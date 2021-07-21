@@ -8,9 +8,7 @@ function fetchTrendingMovies() {
 
 function fetchMovieByName(movieName) {
   const url = `${API_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}&page=1&include_adult=false`;
-  return fetch(url)
-    .then((response) => response.json())
-    .then(({ results }) => console.log(results));
+  return fetch(url).then((response) => response.json());
 }
 
 function fetchFullMovieInformation(movieId) {
