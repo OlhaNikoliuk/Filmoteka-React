@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import styles from './Navigation.module.css';
+// import styles from './Navigation.module.css';
 
 function Navigation() {
   return (
@@ -7,15 +7,15 @@ function Navigation() {
       <NavLink
       exact
         to='/'
-        className={styles.link}
-        activeClassName={styles.activeLink}
+        className="NavLink"
+        activeClassName="ActiveLink"
       >
         Home
       </NavLink>
       <NavLink
         to='/movies'
-        className={styles.link}
-        activeClassName={styles.activeLink}
+        className="NavLink"
+        activeClassName="ActiveLink"
       >
         Movies
       </NavLink>

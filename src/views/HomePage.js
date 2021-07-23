@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link, useRouteMatch } from "react-router-dom";
+
 import * as moviesAPI from "../services/FetchMovies";
+import MovieList from "../components/MovieList/MovieList";
 
 function HomePage() {
-  const { url } = useRouteMatch();
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -12,21 +12,7 @@ function HomePage() {
     });
   }, []);
 
-  return (
-    <>
-      {movies && (
-        <ul>
-          {movies.map((movie) => (
-            <li key={movie.id}>
-              <Link to={`${url}movies/${movie.id}`}>
-                {movie.title ? movie.title : movie.original_name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </>
-  );
+  return <>{movies && <MovieList movies={movies}></MovieList>}</>;
 }
 
 export default HomePage;

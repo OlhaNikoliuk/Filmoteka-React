@@ -18,16 +18,12 @@ function fetchFullMovieInformation(movieId) {
 
 function fetchMovieCast(movieId) {
   const url = `${API_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`;
-  return fetch(url)
-    .then((response) => response.json())
-    .then(({ cast }) => console.log(cast));
+  return fetch(url).then((response) => response.json());
 }
 
 function fetchMovieReviews(movieId) {
   const url = `${API_URL}/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`;
-  return fetch(url)
-    .then((response) => response.json())
-    .then(({ results }) => console.log(results));
+  return fetch(url).then((response) => response.json());
 }
 
 export {

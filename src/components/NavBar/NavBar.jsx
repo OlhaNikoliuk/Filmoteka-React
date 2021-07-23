@@ -1,10 +1,12 @@
+
 import Navigation from '../Navigation/Navigation';
+import { Header } from './NavBar.styled';
 
 function NavBar() {
   return (
-    <header>
+    <Header>
       <Navigation />
-    </header>
+    </Header>
   );
 }
 
