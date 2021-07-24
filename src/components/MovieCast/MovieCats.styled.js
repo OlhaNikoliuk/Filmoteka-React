@@ -12,11 +12,13 @@ export const Gallery = styled.ul`
   margin-left: auto;
   margin-right: auto;
 `;
+
 export const Actor = styled.li`
   border: 1px solid #ededed;
   border-radius: 4px;
   text-align: center;
   padding-bottom: 5px;
+  font-size: 14px;
 `;
 
 export const ActorImg = styled.img`

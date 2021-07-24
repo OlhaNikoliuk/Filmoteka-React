@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Form, SearchFormBtn, SearchFormInput } from './SearchForm.styled';
 import { BsSearch } from 'react-icons/bs';
 
@@ -28,4 +29,8 @@ export function SearchForm({ onSubmit }) {
       </Form>
     </>
   );
+}
+
+SearchForm.propTypes={
+  onSubmit: PropTypes.node,
 }

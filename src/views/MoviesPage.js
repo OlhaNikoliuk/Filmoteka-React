@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { NavLink, useRouteMatch } from "react-router-dom";
 import * as moviesAPI from "../services/FetchMovies";
 import { SearchForm } from "../components/SearchForm/SearchForm";
 import MovieList from "../components/MovieList/MovieList";
@@ -7,7 +6,6 @@ import MovieList from "../components/MovieList/MovieList";
 function MoviesPage() {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
-  const { url } = useRouteMatch();
 
   useEffect(() => {
     moviesAPI.fetchMovieByName(query).then(({ results }) => setMovies(results));

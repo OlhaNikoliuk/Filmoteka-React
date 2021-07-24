@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Reviews, Author, ReviewText } from './MovieReviews.styled';
 
 function MovieRewiews({ reviews }) {
@@ -9,6 +10,10 @@ function MovieRewiews({ reviews }) {
       </Reviews>
     );
   });
+}
+
+MovieRewiews.propTypes={
+  review: PropTypes.array,
 }
 
 export default MovieRewiews;

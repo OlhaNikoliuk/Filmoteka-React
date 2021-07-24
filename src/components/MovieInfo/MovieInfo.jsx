@@ -1,4 +1,5 @@
 import { useRouteMatch, NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   MovieWrap,
   Image,
@@ -9,24 +10,33 @@ import {
   BtnWrap,
 } from './MovieInfo.styled';
 
-function MovieInfo({ movie, genres }) {
+function MovieInfo({
+  poster_path,
+  original_title,
+  release_date,
+  vote_average,
+  popularity,
+  genres,
+  overview,
+}) {
   const { url } = useRouteMatch();
+
   return (
     <MovieWrap>
       <Image
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt={movie.original_title}
+        src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+        alt={original_title}
       />
       <MovieDesc>
-        <MovieTitle>{movie.original_title}</MovieTitle>
+        <MovieTitle>{original_title}</MovieTitle>
         <Info>
-          <InfoName>Reliase year:</InfoName> {parseInt(movie.release_date)}
+          <InfoName>Reliase year:</InfoName> {parseInt(release_date)}
         </Info>
         <Info>
-          <InfoName>Votes:</InfoName> {movie.vote_average}
+          <InfoName>Votes:</InfoName> {vote_average}
         </Info>
         <Info>
-          <InfoName>Popularity:</InfoName> {movie.popularity}
+          <InfoName>Popularity:</InfoName> {popularity}
         </Info>
         <Info>
           <InfoName>Genres:</InfoName> {genres.join(', ')}
@@ -34,7 +44,7 @@ function MovieInfo({ movie, genres }) {
         <Info>
           <InfoName>Owerview:</InfoName>
         </Info>
-        <Info>{movie.overview}</Info>
+        <Info>{overview}</Info>
         <BtnWrap>
           <NavLink
             to={`${url}/cast`}
@@ -55,5 +65,15 @@ function MovieInfo({ movie, genres }) {
     </MovieWrap>
   );
 }
+
+MovieInfo.propTypes = {
+  poster_path: PropTypes.string,
+  original_title:PropTypes.string,
+  release_date: PropTypes.string,
+  vote_average: PropTypes.number,
+  popularity: PropTypes.number,
+  genres: PropTypes.array,
+  overview: PropTypes.string,
+};
 
 export default MovieInfo;

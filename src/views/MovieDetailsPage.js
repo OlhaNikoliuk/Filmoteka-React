@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useRouteMatch, Route, NavLink } from "react-router-dom";
+import { useParams, Route } from "react-router-dom";
 import * as moviesAPI from "../services/FetchMovies";
 import MovieInfo from "../components/MovieInfo/MovieInfo";
 import Cast from "./Cast";
@@ -9,7 +9,6 @@ function MovieDetailsPage() {
   const [movie, setMovie] = useState([]);
   const [genres, setGenres] = useState([]);
   const { movieId } = useParams();
-  // const { url } = useRouteMatch();
 
   useEffect(() => {
     moviesAPI.fetchFullMovieInformation(movieId).then((movie) => {
@@ -20,10 +19,15 @@ function MovieDetailsPage() {
 
   return (
     <>
-      <MovieInfo movie={movie} genres={genres}></MovieInfo>
-
-      {/* <NavLink to={`${url}/cast`}>Cast</NavLink>
-      <NavLink to={`${url}/reviews`}>Reviews</NavLink> */}
+      <MovieInfo
+        poster_path={movie.poster_path}
+        original_title={movie.original_title}
+        release_date={movie.release_date}
+        vote_average={movie.vote_average}
+        popularity={movie.popularity}
+        overview={movie.overview}
+        genres={genres}
+      ></MovieInfo>
 
       <Route path="/movies/:movieId/cast">
         <Cast></Cast>

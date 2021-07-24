@@ -1,7 +1,6 @@
+import PropTypes from 'prop-types';
 import { Gallery, Actor, ActorImg, Name, Character } from './MovieCats.styled';
 import noimage from '../../images/noimage.jpg';
-
-console.log(noimage);
 
 function MovieCast({ actors }) {
   return (
@@ -16,7 +15,6 @@ function MovieCast({ actors }) {
                   : noimage
               }
               alt={actor.name}
-              
             ></ActorImg>
             <Name>{actor.name}</Name>
 
@@ -28,6 +26,10 @@ function MovieCast({ actors }) {
       })}
     </Gallery>
   );
+}
+
+MovieCast.propTypes={
+  actors: PropTypes.array,
 }
 
 export default MovieCast;

@@ -8,9 +8,9 @@ import MovieDetailsPage from "./views/MovieDetailsPage";
 function App() {
   return (
     <>
-      {/* <Container> */}
-      <NavBar />
-      {/* </Container> */}
+      <Container>
+        <NavBar />
+      </Container>
 
       <Container>
         <Switch>
