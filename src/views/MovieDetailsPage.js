@@ -1,9 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { useParams, Route } from "react-router-dom";
 import * as moviesAPI from "../services/FetchMovies";
 import MovieInfo from "../components/MovieInfo/MovieInfo";
-import Cast from "./Cast";
-import Reviews from "./Reviews";
+// import Cast from "./Cast";
+// import Reviews from "./Reviews";
+
+const Cast = lazy(() => import("./Cast" /* webpackChunkName: "cast" */));
+const Reviews = lazy(() =>
+  import("./Reviews" /* webpackChunkName: "reviews" */)
+);
 
 function MovieDetailsPage() {
   const [movie, setMovie] = useState([]);
@@ -29,13 +34,15 @@ function MovieDetailsPage() {
         genres={genres}
       ></MovieInfo>
 
-      <Route path="/movies/:movieId/cast">
-        <Cast></Cast>
-      </Route>
+      <Suspense fallback={<div> Поставить лоадер</div>}>
+        <Route path="/movies/:movieId/cast">
+          <Cast />
+        </Route>
 
-      <Route path="/movies/:movieId/reviews">
-        <Reviews></Reviews>
-      </Route>
+        <Route path="/movies/:movieId/reviews">
+          <Reviews />
+        </Route>
+      </Suspense>
     </>
   );
 }

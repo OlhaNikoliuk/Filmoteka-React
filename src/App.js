@@ -1,9 +1,20 @@
+import { lazy, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 import Container from "./components/Container/Container";
 import NavBar from "../src/components/NavBar/NavBar";
-import HomePage from "../src/views/HomePage";
-import MoviesPage from "../src/views/MoviesPage";
-import MovieDetailsPage from "./views/MovieDetailsPage";
+// import HomePage from '../src/views/HomePage';
+// import MoviesPage from '../src/views/MoviesPage';
+// import MovieDetailsPage from './views/MovieDetailsPage';// убираем статический импорт, так, как вебпак автоматически доавит его в сборку
+
+const HomePage = lazy(() =>
+  import("./views/HomePage.js" /* webpackChunkName: "home-page" */)
+);
+const MoviesPage = lazy(() =>
+  import("./views/MoviesPage.js" /* webpackChunkName: "movies-page" */)
+);
+const MovieDetailsPage = lazy(() =>
+  import("./views/MovieDetailsPage.js" /* webpackChunkName: "movie-details" */)
+);
 
 function App() {
   return (
@@ -11,22 +22,23 @@ function App() {
       <Container>
         <NavBar />
       </Container>
+      <Suspense fallback={<div>Добавить нормальный лоадер</div>}>
+        <Container>
+          <Switch>
+            <Route path="/" exact>
+              <HomePage />
+            </Route>
 
-      <Container>
-        <Switch>
-          <Route path="/" exact>
-            <HomePage />
-          </Route>
+            <Route path="/movies" exact>
+              <MoviesPage />
+            </Route>
 
-          <Route path="/movies" exact>
-            <MoviesPage />
-          </Route>
-
-          <Route path="/movies/:movieId">
-            <MovieDetailsPage />
-          </Route>
-        </Switch>
-      </Container>
+            <Route path="/movies/:movieId">
+              <MovieDetailsPage />
+            </Route>
+          </Switch>
+        </Container>
+      </Suspense>
     </>
   );
 }

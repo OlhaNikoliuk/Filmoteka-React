@@ -8,6 +8,7 @@ function MoviesPage() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
+    if (!query) return;
     moviesAPI.fetchMovieByName(query).then(({ results }) => setMovies(results));
   }, [query]);
 
