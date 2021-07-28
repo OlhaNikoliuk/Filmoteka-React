@@ -31,6 +31,6 @@ export function SearchForm({ onSubmit }) {
   );
 }
 
-SearchForm.propTypes={
-  onSubmit: PropTypes.node,
-}
+SearchForm.propTypes = {
+  handleSubmit: PropTypes.node,
+};

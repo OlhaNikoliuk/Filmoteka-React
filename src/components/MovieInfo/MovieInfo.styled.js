@@ -2,7 +2,7 @@ import styled from "@emotion/styled/macro";
 
 export const MovieWrap = styled.div`
   display: flex;
-  padding-top: 30px;
+  padding-top: 15px;
   padding-bottom: 15px;
   border-bottom: 1px solid #2196f3;
 `;

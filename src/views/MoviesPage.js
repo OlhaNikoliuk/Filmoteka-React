@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
+import { useLocation, useHistory } from "react-router-dom";
 import * as moviesAPI from "../services/FetchMovies";
 import { SearchForm } from "../components/SearchForm/SearchForm";
 import MovieList from "../components/MovieList/MovieList";
 
 function MoviesPage() {
-  const [query, setQuery] = useState("");
+  // const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
+
+  const location = useLocation();
+  const history = useHistory();
+
+  const query = new URLSearchParams(location.search).get("query");
 
   useEffect(() => {
     if (!query) return;
@@ -13,7 +19,8 @@ function MoviesPage() {
   }, [query]);
 
   const handleFormSubmit = (query) => {
-    setQuery(query);
+    // setQuery(query);
+    history.push({ ...location, search: `query=${query}` });
   };
 
   return (

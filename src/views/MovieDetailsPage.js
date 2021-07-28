@@ -2,6 +2,7 @@ import { useState, useEffect, lazy, Suspense } from "react";
 import { useParams, Route } from "react-router-dom";
 import * as moviesAPI from "../services/FetchMovies";
 import MovieInfo from "../components/MovieInfo/MovieInfo";
+import { Spinner } from "../components/Spinner/Spinner";
 // import Cast from "./Cast";
 // import Reviews from "./Reviews";
 
@@ -34,7 +35,7 @@ function MovieDetailsPage() {
         genres={genres}
       ></MovieInfo>
 
-      <Suspense fallback={<div> Поставить лоадер</div>}>
+      <Suspense fallback={<Spinner />}>
         <Route path="/movies/:movieId/cast">
           <Cast />
         </Route>
