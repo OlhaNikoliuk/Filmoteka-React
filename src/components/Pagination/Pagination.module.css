@@ -1,0 +1,21 @@
+.commentBox {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+}
+
+.pagination > li {
+  margin: 5px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #2196f3;
+  color: white;
+}

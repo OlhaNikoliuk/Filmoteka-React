@@ -19,7 +19,7 @@ export const MovieCard = styled.li`
 
 export const MovieImg = styled.img`
   width: 100%;
-  height: 275px;
+  height: 355px;
   border-radius: 5px;
   object-fit: cover;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%), 0 2px 5px 0 rgb(0 0 0 / 14%),
