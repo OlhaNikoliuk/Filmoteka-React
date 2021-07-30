@@ -1,8 +1,10 @@
 import styled from "@emotion/styled/macro";
 
 export const Header = styled.header`
+  position: fixed;
+  z-index: 10;
+  width: 100%;
   display: flex;
   padding: 15px 40px;
-  border-radius: 5px;
-  background-color: #ededed;
+  background: var(--main-color);
 `;

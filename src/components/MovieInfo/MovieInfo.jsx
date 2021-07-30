@@ -1,4 +1,4 @@
-import { useRouteMatch, NavLink, useLocation } from 'react-router-dom';
+import { useRouteMatch, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import GoBackBtn from '../GoBackBtn/GoBackBtn';
 import {
@@ -9,6 +9,7 @@ import {
   Info,
   InfoName,
   BtnWrap,
+  InfoLink,
 } from './MovieInfo.styled';
 
 function MovieInfo({
@@ -50,20 +51,17 @@ function MovieInfo({
           </Info>
           <Info>{overview}</Info>
           <BtnWrap>
-            <NavLink
+            <InfoLink
               to={{ pathname: `${url}/cast`, state: { from: location } }}
-              className='NavLink'
-              activeClassName='ActiveLink'
             >
               Cast
-            </NavLink>
-            <NavLink
+            </InfoLink>
+            <InfoLink
               to={{ pathname: `${url}/reviews`, state: { from: location } }}
-              className='NavLink'
-              activeClassName='ActiveLink'
             >
+              
               Reviews
-            </NavLink>
+            </InfoLink>
           </BtnWrap>
         </MovieDesc>
       </MovieWrap>

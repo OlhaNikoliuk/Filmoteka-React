@@ -52,7 +52,7 @@ function MoviesPage() {
   return (
     <>
       <SearchForm onSubmit={handleFormSubmit}></SearchForm>
-      {totalPages !== 0 && (
+      {totalPages && (
         <>
           <MovieList movies={movies}></MovieList>
           <Pagination pages={totalPages} onPageClick={handlePageClick} />

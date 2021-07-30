@@ -7,7 +7,7 @@ function MovieList({ movies }) {
   return (
     <Container>
       <MovieGall>
-      {movies.map(({ id, title, original_name, poster_path, release_date }) => {
+      {movies.map(({ id, title, original_name, poster_path, release_date, vote_average }) => {
         return (
           <MovieGalCard
             key={id}
@@ -16,6 +16,7 @@ function MovieList({ movies }) {
             original_name={original_name}
             poster_path={poster_path}
             release_date={release_date}
+            vote_average = {vote_average}
           />
         );
       })}

@@ -6,7 +6,7 @@ export function Spinner() {
     <LoaderWrapper>
       <Loader
       type="ThreeDots"
-      color="#2196f3"
+      color="#7c9a92"
       height={80}
       width={80}
       timeout={3000} //3 secs

@@ -16,6 +16,9 @@ export function SearchForm({ onSubmit }) {
   return (
     <>
       <Form onSubmit={handleSubmit}>
+      <SearchFormBtn type='submit'>
+          <BsSearch size='20' />{' '}
+        </SearchFormBtn>
         <SearchFormInput
           type='text'
           autoComplete='off'
@@ -23,9 +26,7 @@ export function SearchForm({ onSubmit }) {
           placeholder='Search film'
           name='movie'
         ></SearchFormInput>
-        <SearchFormBtn type='submit'>
-          <BsSearch size='18' />{' '}
-        </SearchFormBtn>
+        
       </Form>
     </>
   );
